@@ -1,7 +1,5 @@
 apply plugin: 'com.android.feature'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -30,6 +28,7 @@ android {
 
 dependencies {
     def priceadviseDependencies = rootProject.ext.priceadviseDependencies
+    def priceadviseTestDependencies = rootProject.ext.priceadviseTestDependencies
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation priceadviseDependencies.kotlin
 

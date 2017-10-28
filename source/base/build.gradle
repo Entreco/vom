@@ -1,4 +1,6 @@
 apply plugin: 'com.android.feature'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
@@ -12,6 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             postprocessing {
@@ -26,6 +29,9 @@ android {
 }
 
 dependencies {
+
+    implementation priceadviseDependencies.kotlin
+
     def baseDependencies = rootProject.ext.baseDependencies
     def baseTestDependencies = rootProject.ext.baseTestDependencies
     api baseDependencies.appCompatV7
