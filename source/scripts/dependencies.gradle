@@ -8,10 +8,13 @@ ext {
     // Libraries
     supportLibraryVersion = '27.0.0'
     googlePlayServicesVersion = '11.4.2'
-    jUnitVersion = '4.12'
     mockitoVersion = '1.9.5'
     mockitoKotlinVersion = '1.5.0'
     supportWearableVersion = '2.1.0'
+    daggerVersion = '2.12'
+
+    // Testing
+    jUnitVersion = '4.12'
     espressoRunnerVersion = '1.0.1'
     espressoCoreVersion = '3.0.1'
 
@@ -20,19 +23,26 @@ ext {
     ]
 
     baseDependencies = [
+            dagger            : "com.google.dagger:dagger:${daggerVersion}",
+            daggerCompiler    : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            daggerAndroid     : "com.google.dagger:dagger-android:${daggerVersion}",
+            daggerSupport     : "com.google.dagger:dagger-android-support:${daggerVersion}",
+            daggerProcessor   : "com.google.dagger:dagger-android-processor:${daggerVersion}",
+
             androidAnnotations: "com.android.support:support-annotations:${supportLibraryVersion}",
             appCompatV7       : "com.android.support:appcompat-v7:${supportLibraryVersion}",
-            supportDesign     : "com.android.support:design:${supportLibraryVersion}"
+            supportDesign     : "com.android.support:design:${supportLibraryVersion}",
+            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
     ]
 
     baseTestDependencies = [
             junit      : "junit:junit:${jUnitVersion}",
-            kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlin_version}",
+            kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
             mockito    : "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}"
     ]
 
     priceadviseDependencies = [
-            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlin_version}"
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}"
     ]
 
     priceadviseTestDependencies = [
@@ -42,7 +52,7 @@ ext {
     ]
 
     wearDependencies = [
-            kotlin               : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlin_version}",
+            kotlin               : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
             supportWearable      : "com.google.android.support:wearable:${supportWearableVersion}",
             supportWear          : "com.android.support:wear:${supportLibraryVersion}",
             supportPercent       : "com.android.support:percent:${supportLibraryVersion}",
