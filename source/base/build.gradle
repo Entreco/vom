@@ -1,11 +1,14 @@
 apply plugin: 'com.android.feature'
 
 android {
-    compileSdkVersion 26
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+
     baseFeature true
+
     defaultConfig {
-        minSdkVersion 23
-        targetSdkVersion 27
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
         versionCode 1
         versionName "1.0"
     }
@@ -23,8 +26,10 @@ android {
 }
 
 dependencies {
-    api 'com.android.support:appcompat-v7:26.1.0'
-    api 'com.android.support:design:26.1.0'
+    def baseDependencies = rootProject.ext.baseDependencies
+    def baseTestDependencies = rootProject.ext.baseTestDependencies
+    api baseDependencies.appCompatV7
+    api baseDependencies.supportDesign
     application project(':app')
     feature project(':priceadvise')
 }

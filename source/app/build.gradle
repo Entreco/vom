@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    
-
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+    buildToolsVersion globalConfiguration["androidBuildToolsVersion"]
 
     defaultConfig {
         applicationId "nl.entreco.vom"
-        minSdkVersion 23
-        targetSdkVersion 27
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
         versionCode 1
         versionName "1.0"
 
@@ -30,8 +30,9 @@ android {
 }
 
 dependencies {
+    def appDependencies = rootProject.ext.appDependencies
     implementation project(':priceadvise')
     implementation project(':base')
     wearApp project(':wear')
-    implementation 'com.google.android.gms:play-services-wearable:+'
+    implementation appDependencies.wear
 }

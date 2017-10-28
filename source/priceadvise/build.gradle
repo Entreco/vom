@@ -5,10 +5,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 26
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+
     defaultConfig {
-        minSdkVersion 23
-        targetSdkVersion 27
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -27,11 +29,13 @@ android {
 }
 
 dependencies {
+    def priceadviseDependencies = rootProject.ext.priceadviseDependencies
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation priceadviseDependencies.kotlin
+
     implementation project(':base')
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    
+
+    testImplementation priceadviseTestDependencies.junit
+    androidTestImplementation priceadviseTestDependencies.espressoRunner
+    androidTestImplementation priceadviseTestDependencies.espressoCore
 }

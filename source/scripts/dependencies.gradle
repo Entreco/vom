@@ -1,0 +1,53 @@
+ext {
+    //Android
+    androidBuildToolsVersion = "27.0.0"
+    androidMinSdkVersion = 23
+    androidTargetSdkVersion = 27
+    androidCompileSdkVersion = 27
+
+    // Libraries
+    supportLibraryVersion = '27.0.0'
+    googlePlayServicesVersion = '11.4.2'
+    jUnitVersion = '4.12'
+    mockitoVersion = '1.9.5'
+    mockitoKotlinVersion = '1.5.0'
+    supportWearableVersion = '2.1.0'
+    espressoRunnerVersion = '1.0.1'
+    espressoCoreVersion = '3.0.1'
+
+    appDependencies = [
+            wear: "com.google.android.gms:play-services-wearable:${googlePlayServicesVersion}"
+    ]
+
+    baseDependencies = [
+            androidAnnotations: "com.android.support:support-annotations:${supportLibraryVersion}",
+            appCompatV7       : "com.android.support:appcompat-v7:${supportLibraryVersion}",
+            supportDesign     : "com.android.support:design:${supportLibraryVersion}"
+    ]
+
+    baseTestDependencies = [
+            junit      : "junit:junit:${jUnitVersion}",
+            kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlin_version}",
+            mockito    : "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}"
+    ]
+
+    priceadviseDependencies = [
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlin_version}"
+    ]
+
+    priceadviseTestDependencies = [
+            junit         : "junit:junit:${jUnitVersion}",
+            espressoRunner: "com.android.support.test:runner:${espressoRunnerVersion}",
+            espressoCore  : "com.android.support.test.espresso:espresso-core:${espressoCoreVersion}"
+    ]
+
+    wearDependencies = [
+            kotlin               : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlin_version}",
+            supportWearable      : "com.google.android.support:wearable:${supportWearableVersion}",
+            supportWear          : "com.android.support:wear:${supportLibraryVersion}",
+            supportPercent       : "com.android.support:percent:${supportLibraryVersion}",
+            supportV4            : "com.android.support:support-v4:${supportLibraryVersion}",
+            supportRecyclerviewV7: "com.android.support:recyclerview-v7:${supportLibraryVersion}",
+            wear                 : "com.google.android.gms:play-services-wearable:${googlePlayServicesVersion}"
+    ]
+}
