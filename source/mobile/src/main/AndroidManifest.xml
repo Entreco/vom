@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application>
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc" />
+
+        <service android:name="nl.entreco.vom.PriceAdvisorService"></service>
+
+        <receiver android:name="nl.entreco.vom.PriceReadReceiver">
+            <intent-filter>
+                <action android:name="nl.entreco.vom.ACTION_MESSAGE_READ" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="nl.entreco.vom.PriceReplyReceiver">
+            <intent-filter>
+                <action android:name="nl.entreco.vom.ACTION_MESSAGE_REPLY" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
