@@ -1,14 +1,15 @@
 package nl.entreco.vom.util
 
 import android.util.Log
+import javax.inject.Inject
 
 /**
  * Created by entreco on 28/10/2017.
  */
-class Logger(private val tag: String) {
+class Logger @Inject constructor () {
 
     fun log(msg: String, vararg args: Any) {
-        Log.d(tag, StringBuilder(msg)
-                .apply { args.forEach { append(it) } }.toString())
+        Log.d("Aha", StringBuilder(msg)
+                .apply { args.forEach { append(it).append(" ") } }.toString())
     }
 }

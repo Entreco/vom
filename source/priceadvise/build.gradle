@@ -1,6 +1,7 @@
 apply plugin: 'com.android.feature'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
@@ -33,6 +34,13 @@ dependencies {
     implementation priceadviseDependencies.kotlin
 
     implementation project(':base')
+
+    implementation priceadviseDependencies.dagger
+    implementation priceadviseDependencies.daggerAndroid
+    implementation priceadviseDependencies.daggerSupport
+
+    kapt priceadviseDependencies.daggerCompiler
+    kapt priceadviseDependencies.daggerProcessor
 
     testImplementation priceadviseTestDependencies.junit
     androidTestImplementation priceadviseTestDependencies.espressoRunner

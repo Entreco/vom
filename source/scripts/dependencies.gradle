@@ -23,6 +23,7 @@ ext {
     ]
 
     baseDependencies = [
+            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
             dagger            : "com.google.dagger:dagger:${daggerVersion}",
             daggerCompiler    : "com.google.dagger:dagger-compiler:${daggerVersion}",
             daggerAndroid     : "com.google.dagger:dagger-android:${daggerVersion}",
@@ -31,8 +32,7 @@ ext {
 
             androidAnnotations: "com.android.support:support-annotations:${supportLibraryVersion}",
             appCompatV7       : "com.android.support:appcompat-v7:${supportLibraryVersion}",
-            supportDesign     : "com.android.support:design:${supportLibraryVersion}",
-            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
+            supportDesign     : "com.android.support:design:${supportLibraryVersion}"
     ]
 
     baseTestDependencies = [
@@ -42,7 +42,12 @@ ext {
     ]
 
     priceadviseDependencies = [
-            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}"
+            kotlin         : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
+            dagger         : "com.google.dagger:dagger:${daggerVersion}",
+            daggerCompiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            daggerAndroid  : "com.google.dagger:dagger-android:${daggerVersion}",
+            daggerSupport  : "com.google.dagger:dagger-android-support:${daggerVersion}",
+            daggerProcessor: "com.google.dagger:dagger-android-processor:${daggerVersion}"
     ]
 
     priceadviseTestDependencies = [

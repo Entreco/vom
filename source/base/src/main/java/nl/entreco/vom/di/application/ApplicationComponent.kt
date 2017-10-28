@@ -1,5 +1,7 @@
 package nl.entreco.vom.di.application
 
+import android.app.Application
+import dagger.BindsInstance
 import dagger.Component
 import nl.entreco.vom.BaseApplication
 
@@ -9,5 +11,14 @@ import nl.entreco.vom.BaseApplication
 @ApplicationScope
 @Component(modules = arrayOf(ApplicationModule::class))
 interface ApplicationComponent {
-    fun inject(application: BaseApplication)
+
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun application(application: Application): Builder
+
+        fun build(): ApplicationComponent
+    }
+
+    fun inject(app: BaseApplication)
 }
