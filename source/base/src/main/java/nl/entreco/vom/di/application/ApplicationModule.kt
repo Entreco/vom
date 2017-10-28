@@ -21,7 +21,7 @@ open class ApplicationModule(private val application: Application) {
     @Provides
     @ApplicationScope
     fun logger(): Logger {
-        return Logger()
+        return Logger("VOM")
     }
 
     @Provides
