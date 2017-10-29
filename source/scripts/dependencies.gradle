@@ -17,6 +17,8 @@ ext {
     jUnitVersion = '4.12'
     espressoRunnerVersion = '1.0.1'
     espressoCoreVersion = '3.0.1'
+    mockitoKotlinVersion = '1.5.0'
+    mockitoAndroidVersion = '2.8.47'
 
     appDependencies = [
             wear: "com.google.android.gms:play-services-wearable:${googlePlayServicesVersion}"
@@ -52,6 +54,8 @@ ext {
 
     priceadviseTestDependencies = [
             junit         : "junit:junit:${jUnitVersion}",
+            mockito       : "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
+            mockitoAndroid: "org.mockito:mockito-android:${mockitoAndroidVersion}",
             espressoRunner: "com.android.support.test:runner:${espressoRunnerVersion}",
             espressoCore  : "com.android.support.test.espresso:espresso-core:${espressoCoreVersion}"
     ]

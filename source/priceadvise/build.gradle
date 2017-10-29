@@ -12,9 +12,12 @@ android {
         targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "nl.entreco.vom.priceadvise.test.TestRunner"
     }
     buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
         release {
             postprocessing {
                 removeUnusedCode false
@@ -24,6 +27,17 @@ android {
                 proguardFile 'proguard-rules.pro'
             }
         }
+    }
+
+    dexOptions {
+        preDexLibraries = false
+        dexInProcess = false
+        javaMaxHeapSize "4g"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -43,6 +57,12 @@ dependencies {
     kapt priceadviseDependencies.daggerProcessor
 
     testImplementation priceadviseTestDependencies.junit
+
     androidTestImplementation priceadviseTestDependencies.espressoRunner
     androidTestImplementation priceadviseTestDependencies.espressoCore
+    androidTestImplementation priceadviseTestDependencies.mockito
+    androidTestImplementation priceadviseTestDependencies.mockitoAndroid
+
+    kaptTest priceadviseDependencies.daggerCompiler
+    kaptAndroidTest priceadviseDependencies.daggerCompiler
 }
